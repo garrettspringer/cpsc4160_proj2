@@ -29,7 +29,7 @@ void writeName(SDL_Renderer* renderer) {
   if (font == NULL) {
     throw std::string("error: font not found");
   }
-  SDL_Color textColor = {0xff, 0, 0, 0};
+  SDL_Color textColor = {0xff, 255, 200, 0};
   SDL_Surface* surface = 
     TTF_RenderText_Solid(font, TITLE.c_str(), textColor);
   SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
@@ -64,18 +64,26 @@ int main(void) {
     );
 
     // Draws the pink background
-    SDL_SetRenderDrawColor( renderer, 119, 0, 176, 255 );
+    SDL_SetRenderDrawColor(renderer, 119, 0, 176, 255);
     SDL_RenderClear(renderer);
 
     // Draws the red circle
-    SDL_Point center = {320, 240};
+    /*SDL_Point center = {320, 240};
     SDL_Color red = {255,0,0,255};
-    drawCircle(renderer, center, 50, red);
+    drawCircle(renderer, center, 50, red);*/
 
     // Draws the gel rectangles
-    SDL_Color faded_pink = {140, 18, 165, 228};
+    // Sets the light pink color of large rectangles
+    SDL_SetRenderDrawColor(renderer, 140, 18, 165, 228);
     // Large rectangle dimensions
-    
+    SDL_Rect large_rect;
+    large_rect.x = 35;
+    large_rect.y = 0;
+    large_rect.w = 70;
+    large_rect.h = 480;
+
+    // Render rect
+    SDL_RenderFillRect(renderer, &large_rect);
 
     // Writes name in bottom left corner
     writeName(renderer);
