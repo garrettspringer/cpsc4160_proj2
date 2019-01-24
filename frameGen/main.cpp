@@ -63,6 +63,11 @@ int main(void) {
       window, -1, SDL_RENDERER_SOFTWARE
     );
 
+    // First set the blend mode so that alpha blending will work;
+    // the default blend mode is SDL_BLENDMODE_NONE!
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+    SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255/2 );
+
     // Draws the pink background
     SDL_SetRenderDrawColor(renderer, 119, 0, 176, 255);
     SDL_RenderClear(renderer);
@@ -74,12 +79,12 @@ int main(void) {
 
     // Draws the gel rectangles
     // Sets the light pink color of large rectangles
-    SDL_SetRenderDrawColor(renderer, 140, 18, 165, 228);
+    SDL_SetRenderDrawColor(renderer, 140, 18, 165, 100);
     // Large rectangle dimensions
     SDL_Rect large_rect;
-    large_rect.x = 35;
+    large_rect.x = 14;
     large_rect.y = 0;
-    large_rect.w = 70;
+    large_rect.w = 52;
     large_rect.h = 460;
 
     // Render rect
