@@ -3,7 +3,7 @@
 #include <SDL_ttf.h>
 #include "frameGenerator.h"
 
-const std::string TITLE = "Garrett Springer's Bacteria";
+const std::string TITLE = "Garrett's Electrophoresis";
 const std::string NAME = "ghsprin"; // username for prefix of image file
 
 const int WIDTH = 800;
@@ -25,7 +25,7 @@ void drawCircle(SDL_Renderer* renderer,
 // Writes your title at the bottom left of the image
 void writeName(SDL_Renderer* renderer) {
   TTF_Init();
-  TTF_Font* font = TTF_OpenFont("fonts/arial.ttf", 24);
+  TTF_Font* font = TTF_OpenFont("fonts/saved_by_zero.ttf", 22);
   if (font == NULL) {
     throw std::string("error: font not found");
   }
