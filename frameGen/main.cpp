@@ -63,7 +63,7 @@ int main(void) {
       window, -1, SDL_RENDERER_SOFTWARE
     );
 
-    // Draws the white background
+    // Draws the pink background
     SDL_SetRenderDrawColor( renderer, 119, 0, 176, 255 );
     SDL_RenderClear(renderer);
 
@@ -71,6 +71,9 @@ int main(void) {
     SDL_Point center = {320, 240};
     SDL_Color red = {255,0,0,255};
     drawCircle(renderer, center, 50, red);
+
+    // Draws the gel rectangles
+    SDL_Color faded_pink = {140, 18, 165, 228};
 
     // Writes name in bottom left corner
     writeName(renderer);
