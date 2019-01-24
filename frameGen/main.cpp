@@ -79,7 +79,7 @@ int main(void) {
 
     // Draws the gel rectangles
     // Sets the light pink color of large rectangles
-    SDL_SetRenderDrawColor(renderer, 140, 18, 165, 100);
+    SDL_SetRenderDrawColor(renderer, 140, 18, 165, 170);
     // Large rectangle dimensions
     SDL_Rect large_rect;
     large_rect.x = 14;
