@@ -6,8 +6,8 @@
 const std::string TITLE = "Garrett's Electrophoresis";
 const std::string NAME = "ghsprin"; // username for prefix of image file
 
-const int WIDTH = 800;
-const int HEIGHT = 480;
+const int WIDTH = 734;
+const int HEIGHT = 460;
 
 // Draws concentric circles overlapping eachother
 void drawCircle(SDL_Renderer* renderer,
@@ -80,7 +80,7 @@ int main(void) {
     large_rect.x = 35;
     large_rect.y = 0;
     large_rect.w = 70;
-    large_rect.h = 480;
+    large_rect.h = 460;
 
     // Render rect
     SDL_RenderFillRect(renderer, &large_rect);
