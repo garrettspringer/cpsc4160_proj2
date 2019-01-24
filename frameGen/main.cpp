@@ -6,7 +6,7 @@
 const std::string TITLE = "Garrett Springer's Bacteria";
 const std::string NAME = "ghsprin"; // username for prefix of image file
 
-const int WIDTH = 640;
+const int WIDTH = 800;
 const int HEIGHT = 480;
 
 // Draws concentric circles overlapping eachother
@@ -74,6 +74,8 @@ int main(void) {
 
     // Draws the gel rectangles
     SDL_Color faded_pink = {140, 18, 165, 228};
+    // Large rectangle dimensions
+    
 
     // Writes name in bottom left corner
     writeName(renderer);
