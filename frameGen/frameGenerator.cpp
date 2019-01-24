@@ -5,6 +5,7 @@
 #include <iomanip>
 #include "frameGenerator.h"
 
+// Constructor??
 FrameGenerator::
 FrameGenerator(SDL_Renderer* rend, SDL_Window*  win, int w, int h, 
                const std::string& n) :
@@ -20,7 +21,7 @@ FrameGenerator(SDL_Renderer* rend, SDL_Window*  win, int w, int h,
   }
 }
 
-
+// Writes image in a file: frames.bmp
 void FrameGenerator::makeFrame() {
   // Pixel format is argb
   SDL_Surface* screenCap = SDL_GetWindowSurface(window);

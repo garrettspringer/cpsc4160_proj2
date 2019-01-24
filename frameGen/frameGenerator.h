@@ -11,6 +11,6 @@ private:
   const int WIDTH;
   const int HEIGHT;
   const std::string USERNAME;
-  FrameGenerator(const FrameGenerator&);
-  FrameGenerator& operator=(const FrameGenerator&);
+  FrameGenerator(const FrameGenerator&);            // Copy constructor
+  FrameGenerator& operator=(const FrameGenerator&); // Copy assignment operator
 };

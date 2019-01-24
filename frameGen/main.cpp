@@ -4,7 +4,7 @@
 #include "frameGenerator.h"
 
 const std::string TITLE = "Garrett Springer's Bacteria";
-const std::string NAME = "Garrett Springer";
+const std::string NAME = "ghsprin"; // username for prefix of image file
 
 const int WIDTH = 640;
 const int HEIGHT = 480;
@@ -43,7 +43,6 @@ void writeName(SDL_Renderer* renderer) {
   SDL_DestroyTexture(texture);
 }
 
-
 int main(void) {
   try {
     if ( SDL_Init(SDL_INIT_VIDEO) != 0 ) {
@@ -64,18 +63,23 @@ int main(void) {
       window, -1, SDL_RENDERER_SOFTWARE
     );
 
-    SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
+    // Draws the white background
+    SDL_SetRenderDrawColor( renderer, 119, 0, 176, 255 );
     SDL_RenderClear(renderer);
 
+    // Draws the red circle
     SDL_Point center = {320, 240};
     SDL_Color red = {255,0,0,255};
     drawCircle(renderer, center, 50, red);
 
+    // Writes name in bottom left corner
     writeName(renderer);
     SDL_RenderPresent(renderer);
     FrameGenerator frameGen(renderer, window, WIDTH, HEIGHT, NAME);
     frameGen.makeFrame();
 
+    // Game loop
+    // Keeps looping until esc is pressed
     SDL_Event event;
     const Uint8* keystate;
     while ( true ) {
