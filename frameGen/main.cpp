@@ -1,12 +1,14 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <SDL_ttf.h>
+#include <vector>
 #include "frameGenerator.h"
 
 const std::string TITLE = "Garrett's Electrophoresis";
-const std::string NAME = "ghsprin"; // username for prefix of image file
+// username for prefix of image file
+const std::string NAME = "ghsprin";               
 
-const int WIDTH = 734;
+const int WIDTH = 729;
 const int HEIGHT = 460;
 
 // Draws concentric circles overlapping eachother
@@ -77,18 +79,25 @@ int main(void) {
     SDL_Color red = {255,0,0,255};
     drawCircle(renderer, center, 50, red);*/
 
-    // Draws the gel rectangles
-    // Sets the light pink color of large rectangles
-    SDL_SetRenderDrawColor(renderer, 140, 18, 165, 170);
-    // Large rectangle dimensions
-    SDL_Rect large_rect;
-    large_rect.x = 14;
-    large_rect.y = 0;
-    large_rect.w = 52;
-    large_rect.h = 460;
+    // Vector of large gel rectangles
+    std::vector<SDL_Rect> gelRects;
+    for (int i=0; i<10; i++) {
+      // Sets the light pink color of large rectangles
+      SDL_SetRenderDrawColor(renderer, 140, 18, 165, 170);
+      SDL_Rect large_rect;
 
-    // Render rect
-    SDL_RenderFillRect(renderer, &large_rect);
+      large_rect.w = 52;
+      large_rect.h = 460;
+      large_rect.x = large_rect.w * i + (19 * (i+1));  // even spacing
+      large_rect.y = 0;
+
+      // Renders rect
+      gelRects.push_back(large_rect);
+    }
+
+    for (auto i : gelRects) {
+      SDL_RenderFillRect(renderer, &i);
+    }
 
     // Writes name in bottom left corner
     writeName(renderer);
