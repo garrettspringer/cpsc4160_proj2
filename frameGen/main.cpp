@@ -43,6 +43,7 @@ void writeName(SDL_Renderer* renderer) {
 
   SDL_RenderCopy(renderer, texture, NULL, &dst);
   SDL_DestroyTexture(texture);
+  TTF_CloseFont(font); 
 }
 
 int main(void) {
@@ -120,6 +121,7 @@ int main(void) {
   }
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(window);
+  TTF_Quit();
   SDL_Quit();
   }
   catch (const std::string& msg) { std::cout << msg << std::endl; }
