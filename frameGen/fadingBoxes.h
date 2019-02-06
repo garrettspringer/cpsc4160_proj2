@@ -9,6 +9,6 @@ public:
 private:
   SDL_Renderer* renderer;
   SDL_Color color;
-  const int HEIGHT = 15;
+  const int HEIGHT = 8;
   const int WIDTH = 46;
 };

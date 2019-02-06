@@ -70,7 +70,7 @@ int main(void) {
     // First set the blend mode so that alpha blending will work;
     // the default blend mode is SDL_BLENDMODE_NONE! 
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-    SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255/2 );
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255/2);
 
     // Draws the pink background
     SDL_SetRenderDrawColor(renderer, 119, 0, 176, 255);
