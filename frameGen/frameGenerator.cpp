@@ -5,7 +5,7 @@
 #include <iomanip>
 #include "frameGenerator.h"
 
-// Constructor??
+// FrameGenerator Constructor
 FrameGenerator::
 FrameGenerator(SDL_Renderer* rend, SDL_Window*  win, int w, int h, 
                const std::string& n) :

@@ -3,6 +3,7 @@
 #include <SDL_ttf.h>
 #include <vector>
 #include "frameGenerator.h"
+#include "fadingBoxes.h"
 
 const std::string TITLE = "Garrett's Electrophoresis";
 // username for prefix of image file
@@ -67,7 +68,7 @@ int main(void) {
     );
 
     // First set the blend mode so that alpha blending will work;
-    // the default blend mode is SDL_BLENDMODE_NONE!
+    // the default blend mode is SDL_BLENDMODE_NONE! 
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255/2 );
 
@@ -75,21 +76,16 @@ int main(void) {
     SDL_SetRenderDrawColor(renderer, 119, 0, 176, 255);
     SDL_RenderClear(renderer);
 
-    // Draws the red circle
-    /*SDL_Point center = {320, 240};
-    SDL_Color red = {255,0,0,255};
-    drawCircle(renderer, center, 50, red);*/
-
     // Vector of large gel rectangles
     std::vector<SDL_Rect> gelRects;
     for (int i=0; i<10; i++) {
       // Sets the light pink color of large rectangles
-      SDL_SetRenderDrawColor(renderer, 140, 18, 165, 170);
+      SDL_SetRenderDrawColor(renderer, 180, 18, 165, 170);
       SDL_Rect large_rect;
 
-      large_rect.w = 52;
+      large_rect.w = 51;
       large_rect.h = 460;
-      large_rect.x = large_rect.w * i + (19 * (i+1));  // even spacing
+      large_rect.x = (large_rect.w * i) + (20 * (i+1));  // even spacing
       large_rect.y = 0;
 
       // Renders rect
@@ -99,6 +95,10 @@ int main(void) {
     for (auto i : gelRects) {
       SDL_RenderFillRect(renderer, &i);
     }
+
+    // Create fading boxes that represent the DNA
+    FadingBoxes TestBox(renderer);
+    TestBox.draw(23, 190);
 
     // Writes name in bottom left corner
     writeName(renderer);
@@ -118,7 +118,9 @@ int main(void) {
           break;
         }
       }
-  }
+    }
+
+  // Close materials
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(window);
   TTF_Quit();
