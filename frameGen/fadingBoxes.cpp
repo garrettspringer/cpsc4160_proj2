@@ -9,7 +9,7 @@ void FadingBoxes::draw(int x, int y, int numOfBoxes) {
     vec[i] = {x, y-(i*HEIGHT), WIDTH, HEIGHT};
   }
 
-  // Draw the 6 boxes
+  // Draw the boxes
   for (int j=0; j<numOfBoxes; j++) {
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a - (j*10));
     SDL_RenderFillRect(renderer, &vec[j]);

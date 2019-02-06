@@ -103,10 +103,20 @@ int main(void) {
     for (int i=0; i<10; i++) {
       FadingBoxes box(renderer);
       dnaBoxes.push_back(box);
-      dnaBoxes[i].draw(23+(i*71), 190, 10);
     }
-      
+ 
+    dnaBoxes[0].draw(23, 190, 10);
+    dnaBoxes[1].draw(94, 400, 4);
+    dnaBoxes[2].draw(165, 323, 9);
+    dnaBoxes[3].draw(236, 298, 5);
+    dnaBoxes[4].draw(307, 150, 8);
+    dnaBoxes[5].draw(378, 247, 3);
+    dnaBoxes[6].draw(449, 333, 9);
+    dnaBoxes[7].draw(520, 423, 10);
+    dnaBoxes[8].draw(591, 96, 5);
+    dnaBoxes[9].draw(662, 401, 8);
 
+      
     // Writes name in bottom left corner
     writeName(renderer);
     SDL_RenderPresent(renderer);
