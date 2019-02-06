@@ -78,6 +78,7 @@ int main(void) {
 
     // Vector of large gel rectangles
     std::vector<SDL_Rect> gelRects;
+    gelRects.reserve(10);
     for (int i=0; i<10; i++) {
       // Sets the light pink color of large rectangles
       SDL_SetRenderDrawColor(renderer, 180, 18, 165, 170);
@@ -97,8 +98,14 @@ int main(void) {
     }
 
     // Create fading boxes that represent the DNA
-    FadingBoxes TestBox(renderer);
-    TestBox.draw(23, 190);
+    std::vector<FadingBoxes> dnaBoxes;
+    dnaBoxes.reserve(10);
+    for (int i=0; i<10; i++) {
+      FadingBoxes box(renderer);
+      dnaBoxes.push_back(box);
+      dnaBoxes[i].draw(23+(i*71), 190, 10);
+    }
+      
 
     // Writes name in bottom left corner
     writeName(renderer);
