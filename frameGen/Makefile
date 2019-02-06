@@ -8,9 +8,10 @@ LDFLAGS = `sdl2-config --libs` -lm -lSDL2_ttf
 
 OBJS = \
   frameGenerator.o \
+  fadingBoxes.o \
   main.o
 
-EXEC = run
+EXEC = exe
 
 %.o: %.cpp %.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -19,7 +20,7 @@ $(EXEC): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(LDFLAGS)
 
 r:
-	./run
+	./exe
 
 clean:
 	rm -rf $(OBJS)
